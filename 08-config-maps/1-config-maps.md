@@ -1,21 +1,22 @@
 # ConfigMaps
 
-
 ### configmap as properties ane ENV variables
+
 ```s
 $ kubectl apply -f dobby-config-map.yaml
 $ kubectl describe cm dobby-config
 
-$ kubectl apply -f dobby-pod.yaml
+$ kubectl apply -f dobby-configmap-reference.yaml
 $ kubectl exec dobby -it -- sh
-    $ env
+$ env
 
 $ kubeclt apply -f dobby-full-configmap-as-env.yaml
 $ kubectl exec dobby -it -- sh
-    $ env
+$ env
 ```
 
 ### configmap as file and file mounted using volume
+
 ```s
 $ kubectl create configmap test-config-from-file --from-file test.properties
 $ kubectl describe configmap test-config-from-file
@@ -24,7 +25,3 @@ $ kubectl create configmap test-config-from-file --from-file test.properties -o 
 
 $ kubectl apply -f test-configmap-as-volume.yaml
 ```
-
-
-
-

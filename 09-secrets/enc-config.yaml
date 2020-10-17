@@ -1,0 +1,12 @@
+# Genereate random key using $(head -c 32 /dev/urandom | base64)
+kind: EncryptionConfig
+apiVersion: apiserver.config.k8s.io/v1
+resources:
+  - resources:
+      - secrets
+    providers:
+      - aescbc:
+          keys:
+            - name: key
+              secret: UlbbHaUHl3oI5yIH7dNZK/07CT7VTstrncu7c9hAt3c=
+      - identity: {}
